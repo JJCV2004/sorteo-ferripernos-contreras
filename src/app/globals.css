@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #171717;
+  color: #171717;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ============================================================================
+   ESTILOS DE VISTA PREVIA E IMPRESIÓN EN HOJA A4 (210mm x 297mm)
+   ============================================================================ */
+.a4-sheet {
+  width: 210mm;
+  height: 297mm;
+  padding: 6mm 10mm;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-sheets-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    display: block !important;
+  }
+
+  .a4-sheet {
+    width: 210mm !important;
+    height: 297mm !important;
+    padding: 6mm 10mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .a4-sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .ticket-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
